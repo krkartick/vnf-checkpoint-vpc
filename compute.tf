@@ -22,7 +22,7 @@ data "ibm_is_instance_profile" "ckp_profile" {
 ##############################################################################
 resource "ibm_is_instance" "ckp_vsi" {
   name    = "${var.ckp_vsi_name}"
-  image   = "${data.ibm_is_image.ckp_custom_image.id}"
+  image   = "${ibm_is_image.ckp_custom_image.id}"
   profile = "${data.ibm_is_instance_profile.ckp_profile.name}"
 
   primary_network_interface = {

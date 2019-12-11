@@ -15,19 +15,6 @@ data "ibm_is_vpc" "ckp_vpc" {
   name = "${var.vpc_name}"
 }
 
-##############################################################################
-# Create Public_Gateway for a given VPC
-##############################################################################
-resource "ibm_is_public_gateway" "ckp_gateway" {
-  name = "ckp-1nic-demo-gateway01"
-  vpc  = "${data.ibm_is_vpc.ckp_vpc.id}"
-  zone = "${data.ibm_is_zone.zone.name}"
-
-  //User can configure timeouts
-  timeouts {
-    create = "5m"
-  }
-}
 /*
 ##############################################################################
 # Create Subnet for a given VPC and Public-Gateway
@@ -42,12 +29,5 @@ resource "ibm_is_subnet" "ckp_subnet1" {
 */
 
 data "ibm_is_subnet" "ckp_subnet1"{
-   identifier = "${var.subnet_name}"
-}
-##############################################################################
-# Create Floating-IP targeted to Checkpoint virtual server primary network
-##############################################################################
-resource ibm_is_floating_ip "ckp_fip01" {
-  name   = "ckp-1nic-demo-ip01"
-  target = "${ibm_is_instance.ckp_vsi.primary_network_interface.0.id}"
+   identifier = "${var.subnet_id}"
 }
