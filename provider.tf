@@ -3,7 +3,7 @@
 ##############################################################################
 
 ##############################################################################
-# ibmcloud_vnf_svc_api_key - Cloud Service apikey hosting the F5-BIGIP 
+# ibmcloud_vnf_svc_api_key - Cloud Service apikey hosting the checkpoint 
 #                            image in COS. This variable is not shown to user.
 #                            The value for this variable is enter at offering
 #                            onbaording time.
@@ -11,12 +11,12 @@
 variable "ibmcloud_vnf_svc_api_key" {
  default      = ""
  type         = "string"
- description  = "The APIKey of the IBM Cloud NFV service account that is hosting the F5-BIGIP qcow2 image file."
+ description  = "The APIKey of the IBM Cloud NFV service account that is hosting the checkpoint qcow2 image file."
 }
 
 variable "region" {
   default     = "us-south"
-  description = "The VPC Region that you want your VPC, networks and the F5 virtual server to be provisioned in. To list available regions, run `ibmcloud is regions`."
+  description = "The VPC Region that you want your VPC, networks and the checkpoint virtual server to be provisioned in. To list available regions, run `ibmcloud is regions`."
 }
 
 variable "generation" {
