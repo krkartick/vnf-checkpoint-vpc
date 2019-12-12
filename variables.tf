@@ -42,7 +42,7 @@ variable "vpc_name" {
 ##############################################################################
 # subnet_name - Subnet where resources are to be provisioned.
 ##############################################################################
-variable "subnet_id{
+variable "subnet_id" {
   default = "ckp-1arm-subnet"
   description =" The id of the subnet where Checkpoint VSI to be provisioned."
 }
